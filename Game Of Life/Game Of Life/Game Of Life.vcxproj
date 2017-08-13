@@ -82,6 +82,8 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(SolutionDir)TGUI-0.7\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-audio-s-d.lib;opengl32.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;jpeg.lib;sfml-graphics-s-d.lib;tgui-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>
+      </SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -100,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)SFML-2.4.2\include;$(SolutionDir)TGUI-0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

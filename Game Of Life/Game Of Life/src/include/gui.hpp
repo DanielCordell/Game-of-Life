@@ -1,20 +1,27 @@
 #pragma once
+#include <optional>
+
 #include <TGUI/Gui.hpp>
 #include <TGUI/Widgets/Slider.hpp>
 #include <TGUI/Widgets/ComboBox.hpp>
-#include <optional>
+#include <TGUI/Widgets/Button.hpp>
 
 struct SettingsData {
-	SettingsData(int width, int height, int speed, std::string foreground, std::string background)
-		: width(width), height(height), speed(speed), foreground(foreground), background(background) {}
-	const int width, height, speed;
+	SettingsData(int width, int height, std::string foreground, std::string background, bool doClear, bool doToggle, bool doReset)
+		: width(width), height(height), foreground(foreground), background(background), doClear(doClear), doToggle(doToggle), doReset(doReset) {}
+	const int width, height;
 	const std::string foreground, background;
+	const bool doClear, doToggle, doReset;
 	const static SettingsData Default;
 };
 
 
 class SGui : public tgui::Gui {
 private:
+	bool doReset;
+	bool doToggle;
+	bool doClear;
+
 	sf::Font font;
 
 	tgui::Slider::Ptr	widthSlider;
@@ -23,15 +30,17 @@ private:
 	tgui::Slider::Ptr	heightSlider;
 	tgui::Label::Ptr	heightLabel;
 
-	tgui::Slider::Ptr	speedSlider;
-	tgui::Label::Ptr	speedLabel;
-
-
 	tgui::ComboBox::Ptr foregroundBox;
 	tgui::Label::Ptr	foregroundLabel;
 
 	tgui::ComboBox::Ptr backgroundBox;
 	tgui::Label::Ptr	backgroundLabel;
+
+	tgui::Button::Ptr	clearButton;
+
+	tgui::Button::Ptr	resetButton;
+
+	tgui::Button::Ptr	toggleButton;
 
 	void initialize();
 	void setDefaults() const;
